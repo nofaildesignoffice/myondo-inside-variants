@@ -73,7 +73,7 @@
   </div>
   <p class="sum" id="sum"></p>
 
-  <p class="end rv">그래서 마이온도는 만졌을 때 미지근해도<br><strong>몸속 온기로 확인해 주세요.</strong></p>
+  <p class="end rv">그래서 마이온도는 만졌을 때 따뜻하지 않아도<br><strong>몸속 온기로 확인해 주세요.</strong></p>
   <p class="note">* 그래프는 데워지는 방식의 차이를 설명하기 위한 개념도이며, 측정값이 아닙니다. 심부 전달·벗은 뒤 최대 10시간 지속은 브랜드 안내 기준이고, 체감 시점과 정도는 사람마다 다릅니다.</p>
 </section>
 
@@ -89,7 +89,7 @@
     band:{img:'../img/nukki.png',alt:'마이온도 밴드',
       s:function(t){return .32},
       b:function(t){var x=Math.min(1,t/.6);return t<.6?.2+.68*(x*x*(3-2*x)):.88-.12*((t-.6)/.4)},
-      sum:'밴드는 체온 정도로 <strong>미지근하지만</strong>,<br>몸속이 서서히 데워지고 <strong>벗은 뒤에도 이어져요.</strong>'}
+      sum:'밴드는 발열이 없어 <strong>제품 온도 그대로지만</strong>,<br>몸속이 서서히 데워지고 <strong>벗은 뒤에도 이어져요.</strong>'}
   };
   var mode='hot',t0=null,D=6500,auto=true,running=false;
   var fs=document.getElementById('fs'),fb=document.getElementById('fb'),ls=document.getElementById('ls'),lb=document.getElementById('lb'),cur=document.getElementById('cur'),
