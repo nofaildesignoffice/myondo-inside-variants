@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V1 단면 비교</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../common.css">
+<style>
+.sec{padding:76px 20px 56px;background:#F7F4F4;text-align:center}
+.eye{display:inline-block;padding:8px 16px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:14px;color:var(--dark)}
+.ttl{margin-top:18px;font-size:32px;font-weight:400;line-height:1.3;letter-spacing:-.03em}
+.ttl strong{font-weight:800}
+.lead{margin-top:14px;font-size:15px;color:var(--dark);line-height:1.7}
+.fig{margin-top:34px;background:#fff;border-radius:20px;padding:22px 10px 18px;box-shadow:0 10px 26px rgba(80,20,40,.06)}
+.fig svg{width:100%;height:auto;display:block;overflow:visible}
+.heads{display:grid;grid-template-columns:1fr 54px 1fr;margin-top:6px}
+.heads p{font-size:14.5px;font-weight:800;letter-spacing:-.02em}
+.heads p span{display:block;font-size:11.5px;font-weight:500;color:var(--gray)}
+/* 비교표 */
+.tbl{margin-top:16px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 26px rgba(80,20,40,.06)}
+.row{display:grid;grid-template-columns:1fr 78px 1fr;align-items:center;border-top:1px solid #F2EBED}
+.row:first-child{border-top:0}
+.row div{padding:16px 8px;font-size:14px;line-height:1.45;color:var(--gray)}
+.row .k{font-size:12px;font-weight:700;color:var(--light);background:#FBF9F9;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.row .me{color:var(--ink);font-weight:800}
+.end{margin-top:34px;font-size:20px;line-height:1.55;letter-spacing:-.03em}
+.end strong{font-weight:800}
+.sec .note{margin-top:16px}
+/* 애니메이션 */
+.hotglow{opacity:.55}
+.play .hotglow{animation:hp 3.2s ease-in-out infinite}
+@keyframes hp{0%,100%{opacity:.35}50%{opacity:1}}
+.skinheat{opacity:0}
+.play .skinheat{animation:sh 6s ease-in-out infinite}
+@keyframes sh{0%{opacity:0}25%,55%{opacity:1}85%,100%{opacity:.1}}
+.wave{stroke-dasharray:6 10;opacity:0}
+.play .wave{opacity:.9;animation:wv 1.4s linear infinite}
+@keyframes wv{to{stroke-dashoffset:-32}}
+.deep{opacity:0}
+.play .deep{animation:dp 6s ease-in-out infinite}
+@keyframes dp{0%{opacity:.05}45%,100%{opacity:1}}
+.coldtxt{font-size:11px;font-weight:700;fill:#4F7499}
+.warmtxt{font-size:11px;font-weight:800;fill:#fff}
+.lyr{font-size:11px;fill:var(--gray);font-weight:600}
+</style>
+</head>
+<body>
+<span class="tag">V1 · 피부 단면 비교</span>
+<div class="ctx"><b>↑ 브랜드 비주얼 (밴드 열감 이미지)</b>여기에 새 섹션이 들어갑니다</div>
+
+<section class="sec">
+  <p class="eye rv">"밴드가 하나도 안 따뜻한데요?"</p>
+  <h2 class="ttl rv">뜨거워지는 제품이 아니라,<br><strong>몸속을 데우는 밴드</strong>입니다</h2>
+  <p class="lead rv">핫팩·물주머니·전기 찜질기는 제품이 뜨거워져<br>피부 겉면을 데웁니다. 마이온도는 밴드가 아니라<br><b>피부 속 심부층</b>을 데우는 방식이에요.</p>
+
+  <div class="fig rv" data-play>
+    <svg viewBox="0 0 440 330" aria-label="왼쪽은 뜨거운 핫팩이 피부 겉면만 데우고 심부는 그대로인 모습, 오른쪽은 미지근한 마이온도 밴드에서 원적외선이 심부까지 전해져 심부가 따뜻해지는 모습의 개념도">
+      <defs>
+        <linearGradient id="skinHot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6A3D" stop-opacity=".95"/><stop offset=".55" stop-color="#FF9A5A" stop-opacity=".55"/><stop offset="1" stop-color="#FF9A5A" stop-opacity="0"/></linearGradient>
+        <radialGradient id="glow"><stop offset="0" stop-color="#FF7A45" stop-opacity=".9"/><stop offset="1" stop-color="#FF7A45" stop-opacity="0"/></radialGradient>
+        <radialGradient id="deepWarm" cx=".5" cy=".55" r=".7"><stop offset="0" stop-color="#FFB27A"/><stop offset=".6" stop-color="#FF7A45" stop-opacity=".85"/><stop offset="1" stop-color="#E8484F" stop-opacity=".5"/></radialGradient>
+        <clipPath id="cL"><rect x="0" y="96" width="186" height="226" rx="12"/></clipPath>
+        <clipPath id="cR"><rect x="254" y="96" width="186" height="226" rx="12"/></clipPath>
+      </defs>
+      <!-- 층 (공통) -->
+      <g clip-path="url(#cL)">
+        <rect x="0" y="96" width="186" height="18" fill="#F4D4C6"/><rect x="0" y="114" width="186" height="44" fill="#EDBBA9"/>
+        <rect x="0" y="158" width="186" height="66" fill="#F5E4B9"/><rect x="0" y="224" width="186" height="98" fill="#B8545D"/>
+        <rect class="skinheat" x="0" y="96" width="186" height="80" fill="url(#skinHot)"/>
+        <rect x="0" y="224" width="186" height="98" fill="#8FB3D6" opacity=".55"/>
+        <text class="coldtxt" x="93" y="278" text-anchor="middle" fill="#fff" style="fill:#fff">심부는 그대로</text>
+      </g>
+      <g clip-path="url(#cR)">
+        <rect x="254" y="96" width="186" height="18" fill="#F4D4C6"/><rect x="254" y="114" width="186" height="44" fill="#EDBBA9"/>
+        <rect x="254" y="158" width="186" height="66" fill="#F5E4B9"/><rect x="254" y="224" width="186" height="98" fill="#B8545D"/>
+        <rect class="deep" x="254" y="214" width="186" height="108" fill="url(#deepWarm)"/>
+        <g stroke="#FF8A4C" stroke-width="2.4" fill="none" stroke-linecap="round">
+          <path class="wave" d="M300 92 q6 14 0 28 t0 28 t0 28 t0 28 t0 28 t0 28 t0 28"/>
+          <path class="wave" d="M347 92 q6 14 0 28 t0 28 t0 28 t0 28 t0 28 t0 28 t0 28" style="animation-delay:-.45s"/>
+          <path class="wave" d="M394 92 q6 14 0 28 t0 28 t0 28 t0 28 t0 28 t0 28 t0 28" style="animation-delay:-.9s"/>
+        </g>
+        <text class="warmtxt" x="347" y="290" text-anchor="middle">심부까지 따뜻하게</text>
+      </g>
+      <!-- 층 이름 -->
+      <g class="lyr" text-anchor="middle"><text x="220" y="109">표피</text><text x="220" y="140">진피</text><text x="220" y="195">피하지방</text><text x="220" y="270">심부</text></g>
+      <g stroke="#E2D8DB" stroke-dasharray="2 3"><path d="M190 114h-0M196 114h48M196 158h48M196 224h48"/></g>
+      <!-- 제품 -->
+      <ellipse class="hotglow" cx="93" cy="62" rx="100" ry="46" fill="url(#glow)"/>
+      <image href="../img/nk_hotpack2.png" x="48" y="16" width="90" height="94"/>
+      <g stroke="#FF6A3D" stroke-width="2" fill="none" stroke-linecap="round" class="hotglow"><path d="M70 18c-5-6 5-9 0-16M93 14c-5-6 5-9 0-16M116 18c-5-6 5-9 0-16"/></g>
+      <image href="../img/nukki.png" x="282" y="22" width="130" height="101"/>
+    </svg>
+    <div class="heads"><p>핫팩·물주머니·찜질기<span>제품이 뜨거워지는 방식</span></p><i></i><p>마이온도<span>몸속이 데워지는 방식</span></p></div>
+  </div>
+
+  <div class="tbl rv">
+    <div class="row"><div>뜨거워요</div><div class="k">손으로<br>만지면</div><div class="me">미지근해요</div></div>
+    <div class="row"><div>피부 겉면</div><div class="k">데워지는<br>곳</div><div class="me">피부 속<br>심부층까지</div></div>
+    <div class="row"><div>금방 식어요</div><div class="k">떼고<br>나면</div><div class="me">온기가 남아요<br><small style="font-weight:500;color:var(--gray)">최대 10시간*</small></div></div>
+  </div>
+
+  <p class="end rv">그래서 밴드를 만졌을 때 미지근해도 정상이에요.<br><strong>따뜻함은 밴드가 아니라<br>내 몸 안에서 시작됩니다.</strong></p>
+  <p class="note">* 심부 전달·벗은 뒤 최대 10시간 지속은 브랜드 안내 기준이며, 체감 시점과 정도는 사람마다 다릅니다. 그림은 이해를 돕기 위한 개념도입니다.</p>
+</section>
+
+<div class="ctx"><b>↓ DAILY · WARMTH (입던 옷은 그대로)</b></div>
+<script src="../common.js"></script>
+</body>
+</html>

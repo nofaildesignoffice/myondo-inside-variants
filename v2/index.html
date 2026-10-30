@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V2 고객 질문 대화</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../common.css">
+<style>
+.sec{padding:70px 20px 56px;background:#EFEBEC}
+.chat{display:flex;flex-direction:column;gap:12px}
+.b{max-width:82%;padding:14px 16px;border-radius:20px;font-size:15.5px;line-height:1.55;letter-spacing:-.02em;opacity:0;transform:translateY(10px);transition:.5s}
+.b.show{opacity:1;transform:none}
+.b.q{align-self:flex-end;background:#3A3034;color:#fff;border-bottom-right-radius:6px}
+.b.a{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:6px;box-shadow:0 6px 16px rgba(80,20,40,.06)}
+.b.a b{font-weight:800}
+.who{font-size:11.5px;color:var(--gray);margin:0 6px -6px}
+.who.r{align-self:flex-end}
+.who.b{padding:0;background:none;box-shadow:none;font-size:11.5px}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:16px 18px;background:#fff;border-radius:20px;opacity:0;transition:.3s}
+.typing.show{opacity:1}
+.typing i{width:7px;height:7px;border-radius:50%;background:#B9AEB2;animation:ty 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,100%{opacity:.3}50%{opacity:1}}
+.ttl{margin-top:54px;text-align:center;font-size:30px;font-weight:400;line-height:1.32;letter-spacing:-.03em}
+.ttl strong{font-weight:800}
+/* 사진 + 콜아웃 */
+.ph{position:relative;margin:28px -20px 0;overflow:hidden}
+.ph img{width:100%}
+.ph .glow{position:absolute;left:18%;top:46%;width:52%;aspect-ratio:2/1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,138,76,.85),rgba(255,106,61,.35) 60%,rgba(255,90,58,0));mix-blend-mode:screen;opacity:0}
+.ph.play .glow{animation:inw 5s ease-in-out infinite}
+@keyframes inw{0%{opacity:0;transform:scale(.6)}50%,80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+.pin{position:absolute;display:flex;align-items:center;gap:8px}
+.pin i{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.35);flex:none}
+.pin span{background:rgba(255,255,255,.94);color:var(--ink);font-size:13px;font-weight:600;line-height:1.35;padding:8px 12px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.pin span b{display:block;font-size:15px;font-weight:800}
+.pin.p1{left:54%;top:30%}
+.pin.p2{left:8%;top:62%;flex-direction:row-reverse}
+.pin.p2 span{background:rgba(36,20,26,.88);color:#fff}
+.pin.p2 i{background:#FF8A4C;box-shadow:0 0 0 5px rgba(255,138,76,.35)}
+/* 이유 3가지 */
+.why{margin-top:26px;display:grid;gap:12px}
+.w{background:#fff;border-radius:18px;padding:20px 20px 20px 66px;position:relative;box-shadow:0 8px 20px rgba(80,20,40,.05)}
+.w .n{position:absolute;left:20px;top:20px;width:32px;height:32px;border-radius:50%;background:#24141A;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.w h3{font-size:17px;font-weight:800;letter-spacing:-.03em;line-height:1.4}
+.w p{margin-top:6px;font-size:14px;color:var(--dark);line-height:1.65}
+.end{margin-top:34px;text-align:center;font-size:19px;line-height:1.6;letter-spacing:-.03em}
+.end strong{font-weight:800}
+.sec .note{margin-top:16px;text-align:center}
+</style>
+</head>
+<body>
+<span class="tag">V2 · 고객 질문에 답하기</span>
+<div class="ctx"><b>↑ 브랜드 비주얼 (밴드 열감 이미지)</b>여기에 새 섹션이 들어갑니다</div>
+
+<section class="sec">
+  <div class="chat" id="chat">
+    <p class="who r b" data-d="0">마이온도 구매 고객</p>
+    <p class="b q" data-d="200">택배 받자마자 둘러 봤는데…<br>밴드가 하나도 안 따뜻해요. 불량인가요?</p>
+    <div class="typing" id="typing"><i></i><i></i><i></i></div>
+    <p class="who b" data-d="2000">마이온도</p>
+    <p class="b a" data-d="2100"><b>불량이 아니에요!</b> 마이온도는 원래<br>밴드 자체가 뜨거워지지 않아요.</p>
+    <p class="b a" data-d="2900">따뜻해지는 곳은 밴드가 아니라<br><b>고객님 몸속</b>이거든요.</p>
+  </div>
+
+  <h2 class="ttl rv">만져 보면 미지근해도,<br><strong>몸속은 데워지고 있어요</strong></h2>
+
+  <div class="ph rv" data-play>
+    <img src="../img/v2_body.jpg" alt="허리에 마이온도 밴드를 두른 모습">
+    <span class="glow" aria-hidden="true"></span>
+    <div class="pin p1"><i></i><span>밴드를 만지면<b>미지근해요</b></span></div>
+    <div class="pin p2"><i></i><span>몸속은<b>따뜻해지는 중</b></span></div>
+  </div>
+
+  <div class="why">
+    <div class="w rv"><span class="n">01</span><h3>열을 내는 건 밴드가 아니에요</h3><p>핫팩·전기 찜질기는 제품 자체가 뜨거워져 피부에 열을 대는 방식이에요. 마이온도는 체온을 받아 원적외선으로 되돌려 보내기 때문에, 밴드는 뜨거워지지 않아요.</p></div>
+    <div class="w rv"><span class="n">02</span><h3>겉이 아니라 속부터 데워요</h3><p>피부 겉면에 머무르지 않고 피부 속 심부층까지 전해져, 체온 자체를 끌어올리는 방식입니다.</p></div>
+    <div class="w rv"><span class="n">03</span><h3>그래서 확인하는 곳이 달라요</h3><p>밴드를 만져 보는 대신, 1시간쯤 지나 배와 몸이 어떤지 느껴 보세요. 처음엔 아무 느낌이 없을 수 있고, 시점은 사람마다 달라요.</p></div>
+  </div>
+
+  <p class="end rv">밴드가 미지근한 건 정상이에요.<br><strong>뜨거운 건 제품이 아니라, 내 몸이니까요.</strong></p>
+  <p class="note">* 심부 전달은 브랜드 안내 기준이며, 체감 시점과 정도는 사람마다 다릅니다. 몸속 표시는 이해를 돕기 위한 연출입니다.</p>
+</section>
+
+<div class="ctx"><b>↓ DAILY · WARMTH (입던 옷은 그대로)</b></div>
+<script src="../common.js"></script>
+<script>
+(function(){
+  var chat=document.getElementById('chat'),typing=document.getElementById('typing'),done=false;
+  new IntersectionObserver(function(es,o){if(!es[0].isIntersecting||done)return;done=true;o.disconnect();
+    setTimeout(function(){typing.classList.add('show')},900);
+    setTimeout(function(){typing.style.display='none'},2000);
+    chat.querySelectorAll('.b').forEach(function(b){setTimeout(function(){b.classList.add('show')},+b.dataset.d)});
+  },{threshold:.4}).observe(chat);
+})();
+</script>
+</body>
+</html>

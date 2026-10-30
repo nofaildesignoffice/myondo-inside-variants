@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V4 뜨겁다 vs 따뜻해진다</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../common.css">
+<style>
+.sec{padding:80px 20px 60px;background:#171214;color:#fff;text-align:center;overflow:hidden}
+.q{font-size:15px;color:rgba(255,255,255,.55)}
+.pair{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pc{position:relative;border-radius:20px;padding:22px 10px 20px;background:#221B1E}
+.pc .im{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.pc .im img{max-height:108px;width:auto;position:relative;z-index:1}
+.pc.hot .im::before{content:"";position:absolute;inset:-10px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,106,61,.75),rgba(255,106,61,0));opacity:.4}
+.play .pc.hot .im::before{animation:hb 2.4s ease-in-out infinite}
+@keyframes hb{50%{opacity:1}}
+.pc .im .heat{position:absolute;top:-6px;left:50%;transform:translateX(-50%);z-index:2}
+.pc .im .heat path{stroke:#FF8A4C;stroke-width:2.4;fill:none;stroke-linecap:round;opacity:0}
+.play .pc .im .heat path{animation:st 2s ease-in-out infinite}
+.pc .im .heat path:nth-child(2){animation-delay:.3s}.pc .im .heat path:nth-child(3){animation-delay:.6s}
+@keyframes st{0%{opacity:0;transform:translateY(8px)}40%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+.pc .im .body{position:absolute;bottom:-4px;left:50%;width:70%;height:40px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,138,76,.9),rgba(255,138,76,0));opacity:0}
+.play .pc.me .im .body{animation:bd 4s ease-in-out infinite}
+@keyframes bd{0%{opacity:0}60%,100%{opacity:1}}
+.pc h3{margin-top:14px;font-size:15px;font-weight:600;color:rgba(255,255,255,.7)}
+.pc .w{margin-top:2px;font-size:30px;font-weight:800;letter-spacing:-.04em}
+.pc .s{margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
+.big{margin-top:52px;font-size:30px;font-weight:400;line-height:1.38;letter-spacing:-.03em}
+.big strong{font-weight:800}
+.big .ln{display:block}
+.rows{margin-top:36px;text-align:left;border-top:1px solid rgba(255,255,255,.12)}
+.r{padding:20px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
+.r .k{font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.45)}
+.r .v{margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r .v p{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.55)}
+.r .v p.me{color:#fff;font-weight:800}
+.r .v p small{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);margin-bottom:2px}
+.end{margin-top:40px;font-size:20px;line-height:1.6;letter-spacing:-.03em}
+.end strong{font-weight:800}
+.sec .note{margin-top:16px;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+<span class="tag">V4 · '뜨겁다' vs '따뜻해진다'</span>
+<div class="ctx"><b>↑ 브랜드 비주얼 (밴드 열감 이미지)</b>여기에 새 섹션이 들어갑니다</div>
+
+<section class="sec">
+  <p class="q rv">"밴드가 안 따뜻한데, 제대로 된 건가요?"</p>
+
+  <div class="pair" data-play>
+    <div class="pc hot rv">
+      <div class="im"><svg class="heat" width="70" height="26" viewBox="0 0 70 26"><path d="M15 24c-6-7 6-10 0-20"/><path d="M35 24c-6-7 6-10 0-20"/><path d="M55 24c-6-7 6-10 0-20"/></svg><img src="../img/nk_hotpack2.png" alt="일회용 핫팩"></div>
+      <h3>핫팩 · 찜질기는</h3><p class="w">뜨겁고</p><p class="s">제품이 열을 내고<br>피부 겉을 데워요</p>
+    </div>
+    <div class="pc me rv">
+      <div class="im"><img src="../img/nukki.png" alt="마이온도 밴드"><span class="body"></span></div>
+      <h3>마이온도는</h3><p class="w">따뜻해집니다</p><p class="s">밴드는 미지근하고<br>몸속이 데워져요</p>
+    </div>
+  </div>
+
+  <h2 class="big"><span class="ln rv">뜨거운 건 '제품'이고,</span><span class="ln rv"><strong>따뜻해지는 건 '나'</strong>입니다</span></h2>
+
+  <div class="rows">
+    <div class="r rv"><p class="k">열이 나는 곳</p><div class="v"><p><small>핫팩·찜질기</small>제품 자체</p><p class="me"><small>마이온도</small>내 몸 (체온)</p></div></div>
+    <div class="r rv"><p class="k">데워지는 깊이</p><div class="v"><p><small>핫팩·찜질기</small>피부 겉면</p><p class="me"><small>마이온도</small>피부 속 심부층까지</p></div></div>
+    <div class="r rv"><p class="k">손으로 만지면</p><div class="v"><p><small>핫팩·찜질기</small>뜨거워요</p><p class="me"><small>마이온도</small>미지근해요</p></div></div>
+    <div class="r rv"><p class="k">떼고 나면</p><div class="v"><p><small>핫팩·찜질기</small>금방 식어요</p><p class="me"><small>마이온도</small>최대 10시간 온기*</p></div></div>
+  </div>
+
+  <p class="end rv">밴드가 미지근하게 느껴져도 정상이에요.<br><strong>열은 밴드가 아니라<br>몸 안에서 올라오고 있으니까요.</strong></p>
+  <p class="note">* 심부 전달·벗은 뒤 최대 10시간 지속은 브랜드 안내 기준이며, 체감 시점과 정도는 사람마다 다릅니다.</p>
+</section>
+
+<div class="ctx"><b>↓ DAILY · WARMTH (입던 옷은 그대로)</b></div>
+<script src="../common.js"></script>
+</body>
+</html>

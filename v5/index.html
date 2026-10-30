@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V5 스크롤 깊이 비교</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../common.css">
+<style>
+.sec{padding:76px 0 56px;background:#F7F4F4;text-align:center}
+.hd{padding:0 20px}
+.eye{font-size:15px;color:var(--gray)}
+.ttl{margin-top:12px;font-size:32px;font-weight:400;line-height:1.3;letter-spacing:-.03em}
+.ttl strong{font-weight:800}
+.lead{margin-top:14px;font-size:15px;color:var(--dark);line-height:1.7}
+.hint{margin-top:18px;font-size:12px;color:var(--light)}
+.dg{--pl:0;--pr:0;position:relative;margin:34px 0 0;height:760px}
+.prods{position:absolute;left:0;right:0;top:0;height:150px;display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:0 14px 12px}
+.prods div{display:flex;flex-direction:column;align-items:center;gap:8px}
+.prods img{height:84px;width:auto}
+.prods p{font-size:14px;font-weight:800;letter-spacing:-.02em}
+.prods p span{display:block;font-size:11.5px;font-weight:500;color:var(--gray)}
+.lay{position:absolute;left:0;right:0;top:150px;bottom:0}
+.lay i{display:block;position:relative}
+.lay i b{position:absolute;left:12px;top:8px;font-size:11px;font-weight:700;color:rgba(36,20,26,.55);font-style:normal}
+.l1{height:46px;background:#F4D4C6}.l2{height:110px;background:#EDBBA9}.l3{height:170px;background:#F5E4B9}
+.l4{height:284px;background:#B8545D}.l4 b{color:rgba(255,255,255,.8)!important}
+.l4 .warm{position:absolute;inset:0;background:radial-gradient(120% 90% at 72% 55%,rgba(255,178,122,.95),rgba(255,122,69,.75) 45%,rgba(232,72,79,.2) 85%);opacity:calc((var(--pr) - .82) * 6)}
+.bar{position:absolute;top:150px;width:12px;margin-left:-6px;border-radius:0 0 8px 8px;background:linear-gradient(to bottom,#FF6A3D,#FF9A5A);box-shadow:0 0 18px rgba(255,106,61,.7)}
+.bar.l{left:28%;height:calc(var(--pl) * 156px)}
+.bar.r{left:72%;height:calc(var(--pr) * 600px)}
+.bar.r::after{content:"";position:absolute;left:50%;bottom:-10px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#FFD2A0;box-shadow:0 0 24px 8px rgba(255,138,76,.8)}
+.stop{position:absolute;left:28%;top:316px;transform:translate(-50%,0);background:#fff;color:var(--ink);font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.1);white-space:nowrap;opacity:calc((var(--pl) - .95) * 20)}
+.stop::before{content:"";position:absolute;left:50%;top:-6px;margin-left:-6px;border:6px solid transparent;border-top:0;border-bottom-color:#fff}
+.reach{position:absolute;left:72%;bottom:44px;transform:translateX(-50%);background:#24141A;color:#fff;font-size:13px;font-weight:800;padding:9px 14px;border-radius:12px;white-space:nowrap;opacity:calc((var(--pr) - .9) * 12)}
+.cold{position:absolute;left:0;width:50%;top:476px;height:284px;background:rgba(143,179,214,.45);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:#fff;opacity:calc((var(--pl) - .95) * 20)}
+.out{padding:0 20px}
+.cmp{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cmp div{background:#fff;border-radius:16px;padding:18px 10px}
+.cmp p{font-size:12px;color:var(--gray)}
+.cmp b{display:block;margin-top:6px;font-size:17px;letter-spacing:-.03em}
+.cmp .me b{font-weight:800}
+.cmp div:first-child b{font-weight:600;color:var(--dark)}
+.end{margin-top:30px;font-size:20px;line-height:1.55;letter-spacing:-.03em}
+.end strong{font-weight:800}
+.out .note{margin-top:16px}
+</style>
+</head>
+<body>
+<span class="tag">V5 · 스크롤로 보는 데워지는 깊이</span>
+<div class="ctx"><b>↑ 브랜드 비주얼 (밴드 열감 이미지)</b>여기에 새 섹션이 들어갑니다</div>
+
+<section class="sec">
+  <div class="hd">
+    <p class="eye rv">밴드가 미지근한 이유</p>
+    <h2 class="ttl rv">열이 닿는 깊이가<br><strong>다르기 때문입니다</strong></h2>
+    <p class="lead rv">제품이 뜨거운 온열용품은 피부 겉에서 멈추고,<br>마이온도는 피부 속 심부층까지 내려갑니다.</p>
+    <p class="hint">↓ 천천히 내려 보세요</p>
+  </div>
+
+  <div class="dg" id="dg" role="img" aria-label="핫팩의 열은 진피에서 멈추고, 마이온도의 온기는 심부까지 내려가 심부를 데우는 개념도">
+    <div class="prods">
+      <div><img src="../img/nk_hotpack2.png" alt=""><p>핫팩·찜질기<span>제품이 뜨거움</span></p></div>
+      <div><img src="../img/nukki.png" alt=""><p>마이온도<span>밴드는 미지근</span></p></div>
+    </div>
+    <div class="lay"><i class="l1"><b>표피</b></i><i class="l2"><b>진피</b></i><i class="l3"><b>피하지방</b></i><i class="l4"><span class="warm"></span><b>근육 · 심부</b></i></div>
+    <span class="cold">심부는 그대로</span>
+    <span class="bar l"></span><span class="bar r"></span>
+    <span class="stop">피부 겉에서 멈춰요</span>
+    <span class="reach">심부까지 따뜻하게</span>
+  </div>
+
+  <div class="out">
+    <div class="cmp rv">
+      <div><p>핫팩·찜질기</p><b>제품이 뜨겁고<br>겉만 데워요</b></div>
+      <div class="me"><p>마이온도</p><b>밴드는 미지근,<br>몸속이 데워져요</b></div>
+    </div>
+    <p class="end rv">그래서 처음 둘렀을 때 밴드가<br>미지근하게 느껴지는 건 정상이에요.<br><strong>체온 자체를 끌어올리는 중이니까요.</strong></p>
+    <p class="note">* 심부 전달은 브랜드 안내 기준이며, 체감 시점과 정도는 사람마다 다릅니다. 그림은 이해를 돕기 위한 개념도입니다.</p>
+  </div>
+</section>
+
+<div class="ctx"><b>↓ DAILY · WARMTH (입던 옷은 그대로)</b></div>
+<script src="../common.js"></script>
+<script>
+(function(){
+  var dg=document.getElementById('dg'),ticking=false;
+  function upd(){ticking=false;
+    var r=dg.getBoundingClientRect(),vh=innerHeight,p=(vh*.8-r.top)/(r.height*.95);
+    p=Math.max(0,Math.min(1,p));
+    dg.style.setProperty('--pl',Math.min(1,p/.4).toFixed(3));
+    dg.style.setProperty('--pr',p.toFixed(3));}
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});
+  addEventListener('resize',upd);upd();
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){dg.style.setProperty('--pl',1);dg.style.setProperty('--pr',1)}
+})();
+</script>
+</body>
+</html>

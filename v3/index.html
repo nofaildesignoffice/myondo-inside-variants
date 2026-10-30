@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V3 두 개의 온도계</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../common.css">
+<style>
+.sec{padding:76px 20px 56px;background:#fff;text-align:center}
+.eye{font-size:15px;color:var(--gray)}
+.ttl{margin-top:12px;font-size:32px;font-weight:400;line-height:1.3;letter-spacing:-.03em}
+.ttl strong{font-weight:800}
+.tabs{margin:30px auto 0;display:inline-flex;background:#F1ECED;border-radius:99px;padding:4px}
+.tabs button{border:0;background:none;font:inherit;font-size:14.5px;font-weight:700;color:var(--gray);padding:10px 18px;border-radius:99px;cursor:pointer;transition:.3s}
+.tabs button.on{background:#24141A;color:#fff}
+.box{margin-top:18px;background:#F7F4F4;border-radius:22px;padding:22px 18px 18px}
+.top{display:grid;grid-template-columns:1fr 64px 64px;gap:10px;align-items:end}
+.prod{height:150px;display:flex;align-items:center;justify-content:center;position:relative}
+.prod img{max-height:130px;width:auto;transition:opacity .4s}
+.prod .hz{position:absolute;inset:10% 10%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,106,61,.55),rgba(255,106,61,0));opacity:0;transition:opacity .3s}
+.g{display:flex;flex-direction:column;align-items:center;gap:8px}
+.g .tube{position:relative;width:22px;height:124px;border-radius:11px;background:#fff;border:1.5px solid #D9CED1;overflow:hidden}
+.g .fill{position:absolute;left:0;right:0;bottom:0;height:20%;border-radius:0 0 10px 10px}
+.g.s .fill{background:#B9AEB2}
+.g.b .fill{background:linear-gradient(to top,#E8484F,#FF9A5A)}
+.g .bulb{width:30px;height:30px;border-radius:50%;margin-top:-14px;border:1.5px solid #D9CED1}
+.g.s .bulb{background:#B9AEB2}.g.b .bulb{background:#E8484F}
+.g p{font-size:12px;font-weight:700;color:var(--dark);line-height:1.3}
+.chart{margin-top:18px;background:#fff;border-radius:16px;padding:14px 10px 8px}
+.chart svg{width:100%;height:auto;display:block}
+.lg{display:flex;justify-content:center;gap:16px;margin-top:4px;font-size:12px;color:var(--dark)}
+.lg span{display:flex;align-items:center;gap:6px}
+.lg i{width:18px;height:3px;border-radius:2px;background:#B9AEB2}
+.lg i.b{background:#FF7A45}
+.sum{margin-top:18px;min-height:76px;font-size:17px;line-height:1.55;letter-spacing:-.03em}
+.sum strong{font-weight:800}
+.end{margin-top:34px;font-size:20px;line-height:1.55;letter-spacing:-.03em}
+.end strong{font-weight:800}
+.sec .note{margin-top:16px}
+</style>
+</head>
+<body>
+<span class="tag">V3 · 제품 온도 vs 몸속 온도</span>
+<div class="ctx"><b>↑ 브랜드 비주얼 (밴드 열감 이미지)</b>여기에 새 섹션이 들어갑니다</div>
+
+<section class="sec">
+  <p class="eye rv">같은 '따뜻함'이어도</p>
+  <h2 class="ttl rv">뜨거워지는 곳이<br><strong>완전히 다릅니다</strong></h2>
+
+  <div class="tabs rv" role="tablist"><button class="on" data-m="hot" role="tab">핫팩 · 찜질기</button><button data-m="band" role="tab">마이온도</button></div>
+
+  <div class="box rv" id="box">
+    <div class="top">
+      <div class="prod"><span class="hz" id="hz"></span><img id="pimg" src="../img/nk_hotpack2.png" alt="일회용 핫팩"></div>
+      <div class="g s"><div class="tube"><i class="fill" id="fs"></i></div><span class="bulb"></span><p>제품<br>표면</p></div>
+      <div class="g b"><div class="tube"><i class="fill" id="fb"></i></div><span class="bulb"></span><p>내<br>몸속</p></div>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 320 150" font-family="Pretendard Variable,sans-serif">
+        <path d="M30 120h280" stroke="#CFC5C8"/><path d="M30 14v106" stroke="#CFC5C8"/>
+        <text x="24" y="22" font-size="10" fill="#A89BA0" text-anchor="end">높음</text>
+        <text x="24" y="120" font-size="10" fill="#A89BA0" text-anchor="end">낮음</text>
+        <path d="M198 14v106" stroke="#24141A" stroke-dasharray="3 4"/>
+        <text x="110" y="138" font-size="11" fill="#7A6C71" text-anchor="middle">착용 중</text>
+        <text x="254" y="138" font-size="11" fill="#24141A" font-weight="700" text-anchor="middle">벗은 뒤</text>
+        <polyline id="ls" fill="none" stroke="#B9AEB2" stroke-width="3" stroke-dasharray="5 5" stroke-linejoin="round"/>
+        <polyline id="lb" fill="none" stroke="#FF7A45" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle id="cur" r="5" fill="#FF7A45"/>
+      </svg>
+      <div class="lg"><span><i></i>제품 표면</span><span><i class="b"></i>내 몸속</span></div>
+    </div>
+  </div>
+  <p class="sum" id="sum"></p>
+
+  <p class="end rv">그래서 마이온도는 만졌을 때 미지근해도<br><strong>몸속 온기로 확인해 주세요.</strong></p>
+  <p class="note">* 그래프는 데워지는 방식의 차이를 설명하기 위한 개념도이며, 측정값이 아닙니다. 심부 전달·벗은 뒤 최대 10시간 지속은 브랜드 안내 기준이고, 체감 시점과 정도는 사람마다 다릅니다.</p>
+</section>
+
+<div class="ctx"><b>↓ DAILY · WARMTH (입던 옷은 그대로)</b></div>
+<script src="../common.js"></script>
+<script>
+(function(){
+  var M={
+    hot:{img:'../img/nk_hotpack2.png',alt:'일회용 핫팩',
+      s:function(t){return t<.6?.2+.75*Math.min(1,t/.08):.2+.75*Math.exp(-(t-.6)*14)},
+      b:function(t){return t<.6?.2+.18*Math.min(1,t/.15):.2+.18*Math.exp(-(t-.6)*12)},
+      sum:'제품이 뜨거워 <strong>피부 겉은 바로 따뜻하지만</strong>,<br>몸속까지는 잘 닿지 않고 떼면 금방 식어요.'},
+    band:{img:'../img/nukki.png',alt:'마이온도 밴드',
+      s:function(t){return .32},
+      b:function(t){var x=Math.min(1,t/.6);return t<.6?.2+.68*(x*x*(3-2*x)):.88-.12*((t-.6)/.4)},
+      sum:'밴드는 체온 정도로 <strong>미지근하지만</strong>,<br>몸속이 서서히 데워지고 <strong>벗은 뒤에도 이어져요.</strong>'}
+  };
+  var mode='hot',t0=null,D=6500,auto=true,running=false;
+  var fs=document.getElementById('fs'),fb=document.getElementById('fb'),ls=document.getElementById('ls'),lb=document.getElementById('lb'),cur=document.getElementById('cur'),
+      pimg=document.getElementById('pimg'),hz=document.getElementById('hz'),sum=document.getElementById('sum'),btns=document.querySelectorAll('.tabs button');
+  function X(t){return 30+t*280}function Y(v){return 120-v*104}
+  function set(m){mode=m;t0=null;pimg.src=M[m].img;pimg.alt=M[m].alt;sum.innerHTML=M[m].sum;
+    btns.forEach(function(b){b.classList.toggle('on',b.dataset.m===m)})}
+  btns.forEach(function(b){b.onclick=function(){auto=false;set(b.dataset.m)}});
+  function frame(ts){
+    if(!running)return;
+    if(t0===null)t0=ts;
+    var t=Math.min(1,(ts-t0)/D),m=M[mode],ps=[],pb=[];
+    for(var i=0;i<=60;i++){var u=i/60*t;ps.push(X(u)+','+Y(m.s(u)));pb.push(X(u)+','+Y(m.b(u)))}
+    ls.setAttribute('points',ps.join(' '));lb.setAttribute('points',pb.join(' '));
+    cur.setAttribute('cx',X(t));cur.setAttribute('cy',Y(m.b(t)));
+    fs.style.height=(m.s(t)*100)+'%';fb.style.height=(m.b(t)*100)+'%';
+    hz.style.opacity=mode==='hot'?Math.max(0,(m.s(t)-.3)/.65):0;
+    if(t>=1&&ts-t0>D+1600){if(auto)set(mode==='hot'?'band':'hot');else t0=null}
+    requestAnimationFrame(frame);
+  }
+  set('hot');
+  new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!running){running=true;t0=null;requestAnimationFrame(frame)}else if(!v)running=false},{threshold:.3}).observe(document.getElementById('box'));
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)D=1;
+})();
+</script>
+</body>
+</html>
