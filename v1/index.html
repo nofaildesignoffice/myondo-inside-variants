@@ -53,6 +53,17 @@
 .bstep i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-right:0;border-left:5px solid #6B1530}
 .burn .bt{margin-top:12px;font-size:14px;color:var(--dark);line-height:1.7}
 .burn .bt b{color:var(--ink);font-weight:800}
+.bfig{display:block;width:100%;height:auto;margin-top:14px}
+.bfig .bk{font-size:13px;font-weight:800;fill:#24141A}
+.bfig .bs{font-size:11px;font-weight:600;fill:#7A6C71}
+.bfig .bw{font-size:11.5px;font-weight:800;fill:#fff}
+.bhl,.bhr{opacity:.85}
+.play .bhl{animation:bhp 3.2s ease-in-out infinite}
+.play .bhr{animation:bhp 2.2s ease-in-out infinite}
+@keyframes bhp{0%,100%{opacity:.6}50%{opacity:1}}
+.bcap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;text-align:center}
+.bcap p{font-size:12.5px;color:var(--gray);line-height:1.45}
+.bcap b{display:block;font-size:13.5px;font-weight:800;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -260,9 +271,33 @@
     <div class="heads"><p>핫팩·물주머니·찜질기<span>제품이 뜨거워지는 방식</span></p><i></i><p>마이온도<span>몸속이 데워지는 방식</span></p></div>
   </div>
 
-  <div class="burn rv">
+  <div class="burn rv" data-play>
     <p class="bh"><svg viewBox="0 0 24 24" fill="#6B1530" aria-hidden="true"><path d="M10.3 3.9 1.8 18.2A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>겉에서 속까지 데우려면?</p>
-    <div class="bstep"><span>피부 겉면</span><i></i><span>진피·피하지방</span><i></i><span><b>피하심층</b></span></div>
+    <svg class="bfig" viewBox="0 0 400 300" role="img" aria-label="왼쪽은 적당한 열로 피부 겉면만 따뜻해지고 심부까지는 닿지 않는 모습, 오른쪽은 심부까지 닿을 만큼 높은 열을 대면 피부 겉면에 화상이 생기는 모습의 개념도">
+      <defs>
+        <linearGradient id="bHeatL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF7A45" stop-opacity=".85"/><stop offset=".22" stop-color="#FF9A5A" stop-opacity=".35"/><stop offset=".4" stop-color="#FF9A5A" stop-opacity="0"/></linearGradient>
+        <linearGradient id="bHeatR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D62E2E" stop-opacity=".85"/><stop offset=".35" stop-color="#FF5A3D" stop-opacity=".5"/><stop offset="1" stop-color="#FF8A4C" stop-opacity=".3"/></linearGradient>
+        <clipPath id="bcL"><rect x="8" y="82" width="186" height="210" rx="12"/></clipPath>
+        <clipPath id="bcR"><rect x="206" y="82" width="186" height="210" rx="12"/></clipPath>
+      </defs>
+      <g><rect x="34" y="6" width="12" height="62" rx="6" fill="#fff" stroke="#D9CED1" stroke-width="1.4"/><rect x="37" y="38" width="6" height="28" rx="3" fill="#FF9A5A"/><circle cx="40" cy="72" r="10" fill="#FF9A5A" stroke="#D9CED1" stroke-width="1.4"/><path d="M48 16h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M48 28h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M48 40h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M48 52h5" stroke="#CFC5C8" stroke-width="1.2"/><text x="62" y="36" class="bk">적당한 열</text><text x="62" y="54" class="bs">겉면만 데워요</text></g>
+      <g><rect x="232" y="6" width="12" height="62" rx="6" fill="#fff" stroke="#D9CED1" stroke-width="1.4"/><rect x="235" y="10" width="6" height="56" rx="3" fill="#E8484F"/><circle cx="238" cy="72" r="10" fill="#E8484F" stroke="#D9CED1" stroke-width="1.4"/><path d="M246 16h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M246 28h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M246 40h5" stroke="#CFC5C8" stroke-width="1.2"/><path d="M246 52h5" stroke="#CFC5C8" stroke-width="1.2"/><text x="260" y="36" class="bk">아주 높은 열</text><text x="260" y="54" class="bs">심부까지 닿게 하려면</text></g>
+      <g clip-path="url(#bcL)">
+        <use href="#skin" transform="translate(8 -14)"/>
+        <rect class="bhl" x="8" y="82" width="186" height="210" fill="url(#bHeatL)"/>
+        <rect x="8" y="210" width="186" height="82" fill="#8FB3D6" opacity=".5"/>
+        <text x="101" y="258" text-anchor="middle" class="bw">심부까지는 닿지 않아요</text>
+      </g>
+      <g clip-path="url(#bcR)">
+        <use href="#skin" transform="translate(206 -14)"/>
+        <rect class="bhr" x="206" y="82" width="186" height="210" fill="url(#bHeatR)"/>
+        <g class="bburn"><ellipse cx="246" cy="104" rx="14" ry="4" fill="#7A1F2A" opacity=".55"/><ellipse cx="284" cy="105" rx="16" ry="4.5" fill="#7A1F2A" opacity=".55"/><ellipse cx="322" cy="104" rx="12" ry="4" fill="#7A1F2A" opacity=".55"/><ellipse cx="352" cy="105" rx="15" ry="4.5" fill="#7A1F2A" opacity=".55"/><ellipse cx="384" cy="104" rx="10" ry="3.5" fill="#7A1F2A" opacity=".55"/><ellipse cx="232" cy="100" rx="9" ry="5" fill="rgba(255,240,225,.75)" stroke="#B8323F" stroke-width="1"/><ellipse cx="262" cy="99" rx="6" ry="3.6" fill="rgba(255,240,225,.75)" stroke="#B8323F" stroke-width="1"/><ellipse cx="300" cy="100" rx="11" ry="5.5" fill="rgba(255,240,225,.75)" stroke="#B8323F" stroke-width="1"/><ellipse cx="336" cy="99" rx="7" ry="4" fill="rgba(255,240,225,.75)" stroke="#B8323F" stroke-width="1"/><ellipse cx="366" cy="100" rx="8" ry="4.5" fill="rgba(255,240,225,.75)" stroke="#B8323F" stroke-width="1"/></g>
+        <rect x="246" y="132" width="106" height="30" rx="15" fill="#24141A"/>
+        <path d="M262 140.5l-6.3 11a1.4 1.4 0 0 0 1.2 2.1h12.6a1.4 1.4 0 0 0 1.2-2.1l-6.3-11a1.4 1.4 0 0 0-2.4 0Z" fill="#fff"/><path d="M263.2 144.5v4M263.2 151.3v.1" stroke="#24141A" stroke-width="1.6" stroke-linecap="round"/>
+        <text x="276" y="152" class="bw">피부 화상</text>
+      </g>
+    </svg>
+    <div class="bcap"><p><b>겉면만 데우면</b>심부는 그대로</p><p><b>심부까지 데우려면</b>피부 겉면이 먼저 화상</p></div>
     <p class="bt">제품의 열만으로 피부 속 심부까지 데우려면, 그만큼 <b>훨씬 높은 열</b>이 필요해요. 하지만 피부 겉면을 지나 심부까지 닿을 만큼 뜨거운 열은 <b>피부에 화상을 입힐 수 있어요.</b></p>
     <p class="bt">그래서 겉에서 데우는 온열용품은 <b>피부 겉면만 따뜻하게</b> 하는 데서 멈출 수밖에 없습니다.</p>
   </div>
